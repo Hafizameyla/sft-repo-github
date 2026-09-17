@@ -8,7 +8,6 @@ const context = canvas.getContext("2d", {
 });
 
 let activeStream = null;
-let cameraStarting = false;
 let scanAnimationId = null;
 let lastScanTime = 0;
 let scanFinished = false;
@@ -21,10 +20,6 @@ const SCAN_INTERVAL = 120;
    ========================================================= */
 
 async function startCamera() {
-    if (cameraStarting || scanFinished) return;
-    if (!window.isSecureContext) { showError('Buka halaman HTTPS untuk menggunakan kamera.'); return; }
-    stopCamera();
-
 
     if (
         !navigator.mediaDevices ||
@@ -39,9 +34,6 @@ async function startCamera() {
     }
 
 
-    cameraStarting = true;
-    document.getElementById('camera-start').disabled = true;
-    statusText.textContent = 'Izinkan kamera bila diminta…';
     try {
 
         /*
@@ -70,7 +62,6 @@ async function startCamera() {
             });
 
 
-        if (scanFinished || document.hidden) { stream.getTracks().forEach(track => track.stop()); return; }
         activeStream = stream;
 
         camera.srcObject = stream;
@@ -106,12 +97,11 @@ async function startCamera() {
             "Arahkan QR Code ke dalam frame";
 
 
-        document.getElementById('camera-start').textContent = 'Ulangi Kamera';
         startScanning();
 
 
     } catch (error) {
-        stopCamera();
+
         console.error(
             "Camera error:",
             error
@@ -144,9 +134,6 @@ async function startCamera() {
 
         }
 
-    } finally {
-        cameraStarting = false;
-        document.getElementById('camera-start').disabled = false;
     }
 
 }
@@ -412,11 +399,6 @@ function handleQrResult(data) {
     }
 
 
-    data = String(data).trim();
-    if (!/^[A-Za-z0-9_-]{3,64}$/.test(data)) {
-        showError('QR ini bukan kode pairing SenCye. Gunakan QR dari Dashboard Pendamping.');
-        return;
-    }
     scanFinished = true;
 
 
@@ -537,15 +519,10 @@ function stopCamera() {
    PAGE EVENTS
    ========================================================= */
 
-document.getElementById('camera-start').addEventListener('click', startCamera);
-document.getElementById('manual-pairing').addEventListener('submit', event => {
-    event.preventDefault();
-    handleQrResult(document.getElementById('pairing-code').value);
-});
-document.addEventListener('visibilitychange', () => {
-    if (document.hidden) stopCamera();
-    else if (!scanFinished) statusText.textContent = 'Tekan Aktifkan Kamera untuk melanjutkan.';
-});
+window.addEventListener(
+    "DOMContentLoaded",
+    startCamera
+);
 
 
 window.addEventListener(
