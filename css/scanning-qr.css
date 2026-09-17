@@ -1,0 +1,288 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    min-height: 100%;
+
+    background: #000000;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =========================================================
+   FRAME UTAMA
+   ========================================================= */
+
+.scan-page {
+    position: relative;
+
+    width: 390px;
+    height: 844px;
+
+    overflow: hidden;
+
+    border-radius: 40px;
+
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   BACKGROUND DESAIN
+   ========================================================= */
+
+.scan-background {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 390px;
+    height: 844px;
+
+    object-fit: fill;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   AREA KAMERA
+   ========================================================= */
+
+.camera-frame {
+    position: absolute;
+
+    top: 310px;
+    left: 51px;
+
+    width: 288px;
+    height: 300px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #eeeeee;
+
+    z-index: 3;
+}
+
+#camera {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    background: #111111;
+}
+
+/*
+Canvas dipakai hanya untuk membaca pixel video.
+Tidak perlu ditampilkan kepada pengguna.
+*/
+#qr-canvas {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   FRAME SCANNER
+   ========================================================= */
+
+.scanner-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 5;
+}
+
+.corner {
+    position: absolute;
+
+    width: 65px;
+    height: 57px;
+}
+
+.top-left {
+    top: 15px;
+    left: 20px;
+
+    border-top: 3px solid #086398;
+    border-left: 3px solid #086398;
+}
+
+.top-right {
+    top: 15px;
+    right: 20px;
+
+    border-top: 3px solid #086398;
+    border-right: 3px solid #086398;
+}
+
+.bottom-left {
+    bottom: 15px;
+    left: 20px;
+
+    border-bottom: 3px solid #086398;
+    border-left: 3px solid #086398;
+}
+
+.bottom-right {
+    bottom: 15px;
+    right: 20px;
+
+    border-bottom: 3px solid #086398;
+    border-right: 3px solid #086398;
+}
+
+
+/* Animasi garis scan */
+.scan-line {
+    position: absolute;
+
+    left: 24px;
+
+    width: calc(100% - 48px);
+
+    border-top: 3px dashed #086398;
+
+    animation: scanMove 2.2s ease-in-out infinite alternate;
+}
+
+@keyframes scanMove {
+    from {
+        top: 28%;
+    }
+
+    to {
+        top: 72%;
+    }
+}
+
+
+/* Ketika QR berhasil terbaca */
+.camera-frame.scan-success .corner {
+    border-color: #20a35a;
+}
+
+.camera-frame.scan-success .scan-line {
+    border-color: #20a35a;
+
+    animation: none;
+
+    top: 50%;
+}
+
+
+/* =========================================================
+   HOTSPOT / NAVIGASI
+   ========================================================= */
+
+.back-area {
+    position: absolute;
+
+    top: 25px;
+    left: 25px;
+
+    width: 50px;
+    height: 50px;
+
+    z-index: 10;
+}
+
+.signup-area {
+    position: absolute;
+
+    left: 220px;
+    top: 744px;
+
+    width: 85px;
+    height: 35px;
+
+    z-index: 10;
+}
+
+
+/* =========================================================
+   STATUS KAMERA / SCAN
+   ========================================================= */
+
+.camera-status {
+    position: absolute;
+
+    /* Dipindahkan ke area kosong di atas frame QR */
+    top: 286px;
+    left: 45px;
+
+    width: 300px;
+
+    text-align: center;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.4;
+
+    color: #567087;
+
+    z-index: 7;
+}
+
+.camera-status.success {
+    color: #16894a;
+
+    font-weight: 600;
+}
+
+.camera-status.error {
+    color: #b54444;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+    body {
+        display: block;
+    }
+
+    .scan-page {
+        transform-origin: top left;
+
+        transform:
+            scale(
+                calc(100vw / 390)
+            );
+    }
+}
+
+.camera-actions{position:absolute;top:623px;left:42px;width:306px;z-index:12;font:12px Arial,sans-serif;display:grid;gap:8px}.camera-actions button{border:0;background:#117ac2;color:white;border-radius:10px;padding:9px 12px;min-height:38px;cursor:pointer}.camera-actions label{display:block;margin-bottom:4px}.camera-actions form>div{display:flex;gap:6px}.camera-actions input{min-width:0;flex:1;border:1px solid #b5c8d9;border-radius:9px;padding:8px;font-size:16px}

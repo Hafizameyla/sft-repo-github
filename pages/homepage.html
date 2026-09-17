@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SenCye - Home</title>
+
+    <link rel="stylesheet" href="../css/globals.css">
+    <link rel="stylesheet" href="../css/styleguide.css">
+    <link rel="stylesheet" href="../css/visual-pages.css">
+    <link rel="stylesheet" href="../css/homepage-interactive.css">
+<link rel="stylesheet" href="../css/navigation.css">
+</head>
+
+<body>
+
+    <main class="visual-page homepage-page">
+        <img
+            class="visual-page-artwork"
+            src="../assets/images/homepage-bg.png"
+            alt="Homepage SenCye"
+        >
+
+        <!-- Menutup icon streak bawaan selama animasi intro -->
+        <div id="streak-mask" class="streak-mask"></div>
+
+        <!-- Api besar 2 detik, lalu mengecil ke area streak -->
+        <div id="streak-burst" class="streak-burst" aria-hidden="true">
+            <span class="streak-fire">🔥</span>
+            <span class="streak-number">6</span>
+        </div>
+
+        <!-- Hotspots -->
+        <button id="sos-button" class="hotspot home-sos" type="button" aria-label="Tombol Darurat"></button>
+        <button id="call-button" class="hotspot home-call" type="button" aria-label="Telepon Pendamping"></button>
+        <button id="voice-button" class="hotspot home-voice" type="button" aria-label="Tahan untuk merekam voice note"></button>
+        <a id="bike-button" class="hotspot home-bike" href="bicycle-info.html" aria-label="Informasi Sepeda"></a>
+
+        <!-- Feedback voice note -->
+        <div id="recording-pill" class="recording-pill" hidden>
+            <span class="recording-dot"></span>
+            <span id="recording-time">Merekam 00:00</span>
+            <span class="recording-help">Lepaskan untuk kirim</span>
+        </div>
+
+        <!-- Call modal -->
+        <section id="call-modal" class="call-modal" hidden aria-live="polite">
+            <div class="call-card">
+                <div class="call-avatar">👤</div>
+                <div class="call-label">Pendamping</div>
+                <strong id="call-status">Memanggil...</strong>
+
+                <button id="hangup-button" class="hangup-button" type="button">
+                    Tutup Panggilan
+                </button>
+            </div>
+        </section>
+
+        
+
+        <section id="incoming-user-call" class="incoming-user-call" hidden>
+            <div class="incoming-user-card">
+                <div class="incoming-user-icon">📞</div>
+                <p>Pendamping menelepon</p>
+                <strong>SenCye Audio Call</strong>
+                <div class="incoming-user-actions">
+                    <button id="user-decline-call" type="button">Tolak</button>
+                    <button id="user-accept-call" type="button">Terima</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="incoming-companion-voice" class="incoming-companion-voice" hidden>
+            <strong>Voice Note dari Pendamping</strong>
+            <audio id="companion-voice-audio" controls></audio>
+            <button id="close-companion-voice" type="button">Tutup</button>
+        </section>
+
+        <audio id="remote-audio" autoplay></audio>
+
+        <div id="toast" class="app-toast" hidden></div>
+    
+<nav class="app-navbar" aria-label="Navigasi utama">
+<a href="homepage.html" aria-label="Home" title="Home" aria-current="page"></a>
+<a href="route.html" aria-label="Rute" title="Rute"></a>
+<a href="monitoring.html" aria-label="Monitoring" title="Monitoring"></a>
+<a href="profile.html" aria-label="Profil" title="Profil"></a>
+</nav>
+</main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/transport.js"></script>
+    <script src="../js/homepage.js"></script>
+
+<script src="../js/navigation.js"></script>
+</body>
+</html>

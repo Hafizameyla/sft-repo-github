@@ -1,0 +1,96 @@
+
+body{
+ margin:0;
+ background:#000;
+}
+
+.route-page{
+ position:relative;
+ width:390px;
+ height:844px;
+ margin:auto;
+ overflow:hidden;
+}
+
+.route-screen{
+ width:390px;
+ height:844px;
+ display:block;
+ object-fit:cover;
+}
+
+button,.back-area,.nav-home,.nav-route,.nav-monitor{
+ position:absolute;
+ background:transparent;
+ border:0;
+ cursor:pointer;
+ z-index:5;
+}
+
+/* clickable zones mengikuti desain */
+.back-area{
+ left:20px;
+ top:20px;
+ width:80px;
+ height:70px;
+}
+
+/* Full blue cards in the 944 x 2048 reference artwork. */
+.mic-start,
+.mic-destination{
+ top:11.1%;
+ width:42%;
+ height:18.3%;
+ padding:0;
+ border-radius:20px;
+ touch-action:manipulation;
+}
+
+.mic-start{
+ left:5.8%;
+}
+
+.mic-destination{
+ left:52.4%;
+}
+
+.map-button{
+ right:25px;
+ top:540px;
+ width:70px;
+ height:70px;
+ border-radius:50%;
+}
+
+.nav-home{
+ left:15px;
+ bottom:0;
+ width:85px;
+ height:80px;
+}
+
+.nav-route{
+ left:105px;
+ bottom:0;
+ width:85px;
+ height:80px;
+}
+
+.nav-monitor{
+ left:195px;
+ bottom:0;
+ width:85px;
+ height:80px;
+}
+
+.route-value {position:absolute;top:24.5%;width:37%;height:4.4%;background:#2993d6;color:white;font:600 12px/1.4 Arial,sans-serif;display:flex;align-items:center;justify-content:center;text-align:center;padding:2px 5px;box-sizing:border-box;z-index:6;pointer-events:none;}
+.start-location-text{left:8.3%}.destination-text{left:54.9%}
+.route-map{position:absolute;left:4.5%;top:30.3%;width:91%;height:60.4%;z-index:4;display:flex;flex-direction:column;background:#ade0f9;border-radius:24px;overflow:hidden;font-family:Arial,sans-serif;}
+.route-map header{height:37px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 12px;gap:6px;}
+.route-map button,.location-dialog button{position:static;background:white;color:#096398;border:0;padding:8px 10px;border-radius:12px;cursor:pointer;font-size:11px;min-height:34px;touch-action:manipulation;}
+.route-map header strong{font-size:16px}.local-map{width:100%;flex:1;min-height:0;display:block;background:#edf0eb;}
+.route-map footer{padding:10px 13px;min-height:68px;box-sizing:border-box;}
+#route-status{font-size:12px;line-height:1.4;margin:0 0 6px}.route-summary{display:flex;align-items:center;justify-content:space-between;font-size:15px}.route-summary[hidden]{display:none}
+.location-dialog{position:absolute;z-index:80;top:33%;left:6%;width:88%;box-sizing:border-box;border-radius:24px;background:white;padding:22px;box-shadow:0 0 0 1000px #092c4a88,0 10px 30px #1235;font-family:Arial,sans-serif;}
+.location-dialog[hidden]{display:none}.location-dialog h2{font-size:20px;margin:0 0 12px}.location-dialog p{font-size:13px;line-height:1.5;min-height:40px}.location-options{display:grid;gap:10px;margin-bottom:14px}.location-options button{background:#e7f5ff;text-align:left;font-size:14px;min-height:46px}#retry-speech{background:#117cca;color:white}#close-location{margin-left:5px}
+.mic-start.listening,.mic-destination.listening{box-shadow:inset 0 0 0 4px #79df4a;}

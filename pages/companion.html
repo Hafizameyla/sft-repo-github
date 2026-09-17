@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SenCye - Dashboard Pendamping</title>
+
+    <link rel="stylesheet" href="../css/globals.css">
+    <link rel="stylesheet" href="../css/companion.css">
+<link rel="stylesheet" href="../css/navigation.css">
+</head>
+
+<body>
+
+    <main class="companion-page">
+
+        <header class="companion-header">
+            <p>SenCye</p>
+            <h1>Dashboard Pendamping</h1>
+            <span id="transport-mode">Menghubungkan...</span>
+        </header>
+
+        <section class="pair-card">
+            <div>
+                <span class="eyebrow">PAIRING ID</span>
+                <strong id="pair-id">SENCYE-DEMO-001</strong>
+                <small>Scan QR ini dari halaman Sign In pengguna.</small>
+            </div>
+
+            <div id="pair-qr" class="pair-qr"></div>
+
+            <div class="pair-edit">
+                <input id="pair-input" type="text" value="SENCYE-DEMO-001" aria-label="Pairing ID">
+                <button id="pair-save" type="button">Gunakan ID</button>
+            </div>
+        </section>
+
+        <a class="monitoring-link" href="monitoring.html">
+            Buka Monitoring User
+        </a>
+
+        <section class="dashboard-card">
+            <div class="section-title">
+                <h2>Voice Note</h2>
+                <span id="voice-count">0 pesan</span>
+            </div>
+
+            <div id="voice-list" class="voice-list">
+                <p class="empty-state">Belum ada voice note dari pengguna.</p>
+            </div>
+        </section>
+
+        <section class="dashboard-card">
+            <div class="section-title">
+                <h2>Panggilan Audio</h2>
+                <span id="call-state">Siap menerima</span>
+            </div>
+
+            <button id="companion-hangup" type="button" hidden>Akhiri panggilan</button>
+            <p class="call-hint">
+                Biarkan halaman ini tetap terbuka agar panggilan dari pengguna dapat diterima.
+            </p>
+        </section>
+
+        <audio id="remote-audio" autoplay></audio>
+
+        <section id="incoming-call" class="incoming-call" hidden>
+            <div class="incoming-card">
+                <div class="incoming-icon">📞</div>
+                <p>Panggilan masuk dari pengguna</p>
+                <strong>SenCye Audio Call</strong>
+
+                <div class="incoming-actions">
+                    <button id="decline-call" class="decline" type="button">Tolak</button>
+                    <button id="accept-call" class="accept" type="button">Terima</button>
+                </div>
+            </div>
+        </section>
+
+        <div id="companion-toast" class="companion-toast" hidden></div>
+
+    <nav class="app-navbar app-navbar-text" aria-label="Navigasi utama">
+<a href="homepage.html" aria-label="Home" title="Home"><span>Home</span></a>
+<a href="route.html" aria-label="Rute" title="Rute"><span>Rute</span></a>
+<a href="monitoring.html" aria-label="Monitoring" title="Monitoring" aria-current="page"><span>Monitoring</span></a>
+<a href="profile.html" aria-label="Profil" title="Profil"><span>Profil</span></a>
+</nav>
+</main>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/transport.js"></script>
+    <script src="../js/companion.js"></script>
+
+<script src="../js/navigation.js"></script>
+</body>
+</html>

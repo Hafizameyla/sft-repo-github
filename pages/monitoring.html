@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SenCye - Monitoring</title>
+
+    <link rel="stylesheet" href="../css/globals.css">
+    <link rel="stylesheet" href="../css/monitoring.css">
+<link rel="stylesheet" href="../css/navigation.css">
+</head>
+
+<body>
+
+    <main class="monitoring-page">
+
+        <!-- Background menggunakan desain monitoring TERBARU dari user -->
+        <img
+            class="monitoring-background"
+            src="../assets/images/monitoring-bg-interactive.png"
+            alt=""
+        >
+
+        <a
+            class="monitoring-back"
+            href="homepage.html"
+            aria-label="Kembali"
+        ></a>
+
+
+        <!-- =====================================================
+             LIVE TRACKING
+             Bila API Google Maps belum diisi, desain map asli
+             tetap terlihat sebagai fallback.
+             ===================================================== -->
+        <section class="map-shell" aria-label="Live Tracking">
+
+            <div id="google-map"></div>
+
+            <div id="map-message" class="map-message">
+                Menyiapkan live tracking...
+            </div>
+
+            <div id="live-speed" class="live-speed" hidden>
+                🚲 <span>0</span> km/h
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             NOTIFIKASI
+             Visual depan berasal LANGSUNG dari crop screenshot,
+             sehingga layout tetap sama dengan desain user.
+             Geser card ke kiri untuk membuka action.
+             ===================================================== -->
+        <section class="notification-area">
+
+            <!-- TELEPON -->
+            <article class="swipe-row call-row" data-notification="call">
+
+                <div class="swipe-actions">
+                    <button
+                        class="swipe-call"
+                        type="button"
+                        aria-label="Telepon user"
+                    >
+                        <span>📞</span>
+                        <small>Telepon</small>
+                    </button>
+
+                    <button
+                        class="swipe-voice"
+                        type="button"
+                        aria-label="Tahan untuk kirim voice note"
+                    >
+                        <span>🎙️</span>
+                        <small>Voice</small>
+                    </button>
+                </div>
+
+                <div class="swipe-card">
+                    <img
+                        src="../assets/images/monitor-card-call.png"
+                        alt="Telepon - User menelepon - baru saja"
+                    >
+                </div>
+
+            </article>
+
+
+            <!-- SOS -->
+            <article class="swipe-row sos-row" data-notification="sos">
+
+                <div class="swipe-actions">
+                    <button
+                        class="swipe-call"
+                        type="button"
+                        aria-label="Telepon user"
+                    >
+                        <span>📞</span>
+                        <small>Telepon</small>
+                    </button>
+
+                    <button
+                        class="swipe-voice"
+                        type="button"
+                        aria-label="Tahan untuk kirim voice note"
+                    >
+                        <span>🎙️</span>
+                        <small>Voice</small>
+                    </button>
+                </div>
+
+                <div class="swipe-card">
+                    <img
+                        src="../assets/images/monitor-card-sos.png"
+                        alt="Urgent - User mengirimkan SOS - 3 menit lalu"
+                    >
+                </div>
+
+            </article>
+
+
+            <!-- VOICE NOTE -->
+            <article class="swipe-row voice-row" data-notification="voice">
+
+                <div class="swipe-actions">
+                    <button
+                        class="swipe-call"
+                        type="button"
+                        aria-label="Telepon user"
+                    >
+                        <span>📞</span>
+                        <small>Telepon</small>
+                    </button>
+
+                    <button
+                        class="swipe-voice"
+                        type="button"
+                        aria-label="Tahan untuk kirim voice note"
+                    >
+                        <span>🎙️</span>
+                        <small>Voice</small>
+                    </button>
+                </div>
+
+                <div class="swipe-card">
+                    <img
+                        src="../assets/images/monitor-card-voice.png"
+                        alt="User mengirimkan Voice Note - 5 menit lalu"
+                    >
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- Navbar -->
+        
+
+        
+
+
+        <!-- Status rekaman pendamping -->
+        <div
+            id="monitor-recording"
+            class="monitor-recording"
+            hidden
+        >
+            <span class="monitor-recording-dot"></span>
+            <strong id="monitor-record-time">Merekam 00:00</strong>
+            <small>Lepaskan untuk mengirim ke user</small>
+        </div>
+
+
+        <!-- Call modal -->
+        <section
+            id="monitor-call-modal"
+            class="monitor-call-modal"
+            hidden
+        >
+
+            <div class="monitor-call-card">
+                <div class="monitor-call-icon">📞</div>
+
+                <small>User</small>
+
+                <strong id="monitor-call-status">
+                    Memanggil...
+                </strong>
+
+                <div id="monitor-incoming-actions" hidden><button id="monitor-accept" type="button">Terima</button><button id="monitor-decline" type="button">Tolak</button></div>
+                <button
+                    id="monitor-hangup"
+                    type="button"
+                >
+                    Tutup Panggilan
+                </button>
+            </div>
+
+        </section>
+
+
+        <section id="monitor-incoming-voice" hidden aria-label="Voice note dari pengguna"><strong>Voice note dari pengguna</strong><audio id="monitor-voice-player" controls></audio><button id="monitor-close-voice" type="button">Tutup</button></section>
+        <audio
+            id="monitor-remote-audio"
+            autoplay
+        ></audio>
+
+        <div
+            id="monitor-toast"
+            class="monitor-toast"
+            hidden
+        ></div>
+
+    <nav class="app-navbar" aria-label="Navigasi utama">
+<a href="homepage.html" aria-label="Home" title="Home"></a>
+<a href="route.html" aria-label="Rute" title="Rute"></a>
+<a href="monitoring.html" aria-label="Monitoring" title="Monitoring" aria-current="page"></a>
+<a href="profile.html" aria-label="Profil" title="Profil"></a>
+</nav>
+</main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="../js/config.js"></script>
+    <script src="../js/transport.js"></script>
+    <script src="../js/monitoring.js"></script>
+
+<script src="../js/navigation.js"></script>
+</body>
+</html>

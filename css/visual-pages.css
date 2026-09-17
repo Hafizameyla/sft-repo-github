@@ -1,0 +1,103 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background: #000000;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.visual-page {
+    position: relative;
+    width: 390px;
+    height: 844px;
+    overflow: hidden;
+    border-radius: 40px;
+    background: #ffffff;
+}
+
+.visual-page-artwork {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    user-select: none;
+    -webkit-user-drag: none;
+    pointer-events: none;
+}
+
+/* Transparent clickable areas placed on top of the artwork */
+.hotspot {
+    position: absolute;
+    display: block;
+    z-index: 5;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* Scanning QR page */
+.qr-back {
+    top: 28px;
+    left: 27px;
+    width: 42px;
+    height: 42px;
+}
+
+.qr-signup {
+    left: 225px;
+    top: 744px;
+    width: 72px;
+    height: 32px;
+}
+
+/* Home page clickable placeholders for future routing */
+.home-sos {
+    left: 28px;
+    top: 500px;
+    width: 138px;
+    height: 132px;
+}
+
+.home-call {
+    left: 174px;
+    top: 500px;
+    width: 189px;
+    height: 63px;
+}
+
+.home-voice {
+    left: 174px;
+    top: 570px;
+    width: 189px;
+    height: 64px;
+}
+
+.home-bike {
+    left: 28px;
+    top: 646px;
+    width: 335px;
+    height: 80px;
+}
+
+@media (max-width: 390px) {
+    body {
+        display: block;
+        overflow-x: hidden;
+    }
+
+    .visual-page {
+        transform-origin: top left;
+        transform: scale(calc(100vw / 390));
+    }
+}

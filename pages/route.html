@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilih Route</title>
+<link rel="stylesheet" href="../css/globals.css">
+<link rel="stylesheet" href="../css/styleguide.css">
+<link rel="stylesheet" href="../css/route.css">
+<link rel="stylesheet" href="../css/navigation.css">
+</head>
+<body>
+<div class="route-page">
+    <img class="route-screen" alt="Pilih Rute" src="../assets/images/route-group2301.png">
+
+    <a class="back-area" href="homepage.html" aria-label="Kembali ke Homepage"></a>
+
+    <button class="mic-start" id="start-route" aria-label="Ucapkan titik awal"></button>
+    <button class="mic-destination" id="destination-route" aria-label="Ucapkan titik tujuan"></button>
+
+    <div class="route-value start-location-text" aria-live="polite">Pilih lokasi awal</div>
+    <div class="route-value destination-text" aria-live="polite">Pilih tujuan</div>
+    <section class="route-map" aria-label="Peta rute UNDIP ke Bulusan">
+      <header><strong>Rute Bersepeda</strong><button id="edit-route" type="button" aria-label="Pilih lokasi secara manual">Pilih lokasi</button></header>
+      <svg class="local-map" viewBox="0 0 360 400" role="img" aria-label="Jalur UNDIP ke Bulusan">
+        <rect width="360" height="400" fill="#edf0eb"/>
+        <g fill="#d8e8cf"><path d="M10 8H119V90H10Z"/><path d="M257 7H354V83H257Z"/><path d="M215 273H350V380H215Z"/><path d="M14 258H64V376H14Z"/></g>
+        <g fill="#e3e1dc" stroke="#d2d4cf" stroke-width="1"><path d="M142 10H228V78H142Z"/><path d="M75 104H151V166H75Z"/><path d="M204 105H271V160H204Z"/><path d="M17 192H79V237H17Z"/><path d="M121 204H195V274H121Z"/><path d="M252 201H345V243H252Z"/><path d="M105 310H189V381H105Z"/></g>
+        <path d="M350 78Q235 135 277 224T302 400" fill="none" stroke="#b3e1ef" stroke-width="11"/>
+        <g fill="none" stroke="#d3d5ce" stroke-width="16" stroke-linejoin="round"><path d="M0 96L119 93L184 94L303 93L360 92M0 178L95 178L166 173L249 181L360 180M95 0L94 94L95 178L91 276L100 400M181 0L184 94L166 173L209 283L196 400M0 276L91 276L209 283L360 271M0 339L92 336L196 337L360 343M303 0L303 93L280 152L249 181"/></g>
+        <g fill="none" stroke="#fff" stroke-width="11" stroke-linejoin="round"><path d="M0 96L119 93L184 94L303 93L360 92M0 178L95 178L166 173L249 181L360 180M95 0L94 94L95 178L91 276L100 400M181 0L184 94L166 173L209 283L196 400M0 276L91 276L209 283L360 271M0 339L92 336L196 337L360 343M303 0L303 93L280 152L249 181"/></g>
+        <g font-family="Arial,sans-serif" font-size="9" fill="#75827d"><text x="17" y="84">Jl. Prof. Soedarto</text><text x="19" y="166">Tembalang</text><text x="114" y="260">Jl. Bulusan</text><text x="229" y="325">Bulusan</text></g>
+        <g id="route-geometry" visibility="hidden">
+          <path id="route-line" d="M303 93L280 152L249 181L166 173L95 178L91 276L196 283L196 337" fill="none" stroke="#4822d8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="303" cy="93" r="8" fill="white" stroke="#147aca" stroke-width="4"/>
+          <circle cx="196" cy="337" r="9" fill="#f14a45" stroke="white" stroke-width="3"/>
+          <g id="bike-marker" transform="translate(303 93)"><circle r="15" fill="#137bcc" stroke="white" stroke-width="3"/><path d="M-8 3a3 3 0 1 0 0 .1M6 3a3 3 0 1 0 0 .1M-8 3l4-8 5 8h-9l5-5h7M3-6h3" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round"/></g>
+        </g>
+        <g font-family="Arial,sans-serif" font-weight="bold" fill="#324f60"><text x="229" y="63" font-size="13">UNDIP</text><text x="215" y="365" font-size="13">Bulusan</text></g>
+      </svg>
+      <footer><p id="route-status" role="status">Tentukan titik awal dan tujuan.</p><div class="route-summary" hidden><strong>2,6 km · 15 menit</strong><button type="button" id="replay-route">Ulangi</button></div></footer>
+    </section>
+    <section id="location-dialog" class="location-dialog" role="dialog" aria-modal="true" aria-labelledby="location-title" hidden>
+      <h2 id="location-title">Pilih lokasi</h2><p id="speech-status" role="status">Pilih tempat atau gunakan mikrofon.</p>
+      <div class="location-options"><button type="button" data-location="undip">Universitas Diponegoro</button><button type="button" data-location="bulusan">Bulusan</button></div>
+      <button type="button" id="retry-speech">Gunakan mikrofon</button><button type="button" id="close-location">Tutup</button>
+    </section>
+
+    
+    
+    
+<nav class="app-navbar" aria-label="Navigasi utama">
+<a href="homepage.html" aria-label="Home" title="Home"></a>
+<a href="route.html" aria-label="Rute" title="Rute" aria-current="page"></a>
+<a href="monitoring.html" aria-label="Monitoring" title="Monitoring"></a>
+<a href="profile.html" aria-label="Profil" title="Profil"></a>
+</nav>
+</div>
+
+<script src="../js/route.js"></script>
+<script src="../js/navigation.js"></script>
+</body>
+</html>

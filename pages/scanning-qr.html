@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SenCye - Scan QR</title>
+
+    <link rel="stylesheet" href="../css/globals.css">
+    <link rel="stylesheet" href="../css/styleguide.css">
+    <link rel="stylesheet" href="../css/scanning-qr.css">
+<link rel="stylesheet" href="../css/navigation.css">
+</head>
+
+<body>
+
+    <main class="scan-page">
+
+        <!-- Background desain asli -->
+        <img
+            src="../assets/images/scanning-qr-bg.png"
+            class="scan-background"
+            alt=""
+        >
+
+
+        <!-- Tombol kembali -->
+        <a
+            href="signup.html"
+            class="back-area"
+            aria-label="Kembali ke Sign Up"
+        ></a>
+
+
+        <!-- AREA KAMERA + PEMBACA QR -->
+        <div class="camera-frame">
+
+            <video
+                id="camera"
+                autoplay
+                playsinline
+                muted
+            ></video>
+
+            <!-- Canvas hanya dipakai JS untuk menganalisis frame video -->
+            <canvas
+                id="qr-canvas"
+                aria-hidden="true"
+            ></canvas>
+
+
+            <!-- Overlay frame scanner -->
+            <div class="scanner-overlay">
+
+                <span class="corner top-left"></span>
+                <span class="corner top-right"></span>
+
+                <div class="scan-line"></div>
+
+                <span class="corner bottom-left"></span>
+                <span class="corner bottom-right"></span>
+
+            </div>
+
+        </div>
+
+
+        <!-- Status kamera / hasil scan -->
+        <div
+            id="camera-status"
+            class="camera-status"
+            aria-live="polite"
+        >
+            Tekan Aktifkan Kamera untuk memindai QR.
+        </div>
+
+
+        <div class="camera-actions">
+          <button id="camera-start" type="button">Aktifkan Kamera</button>
+          <form id="manual-pairing"><label for="pairing-code">Kode pendamping</label><div><input id="pairing-code" maxlength="64" placeholder="Kode dari pendamping" autocomplete="off" required><button type="submit">Hubungkan</button></div></form>
+        </div>
+        <!-- Sign Up -->
+        <a
+            href="signup.html"
+            class="signup-area"
+            aria-label="Sign Up"
+        ></a>
+
+    </main>
+
+
+    <!--
+        jsQR menjadi fallback untuk browser yang belum mendukung
+        BarcodeDetector API secara native.
+    -->
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+    <script src="../js/camera.js"></script>
+
+<script src="../js/navigation.js"></script>
+</body>
+
+</html>

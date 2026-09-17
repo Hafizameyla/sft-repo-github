@@ -1,0 +1,40 @@
+.bicycle-page {
+    position: relative;
+}
+
+.bicycle-back {
+    position: absolute;
+    top: 18px;
+    left: 16px;
+    width: 52px;
+    height: 48px;
+    z-index: 10;
+}
+
+.bicycle-row {
+    position: absolute;
+    left: 22px;
+    width: 346px;
+    height: 59px;
+    border: 0;
+    border-radius: 22px;
+    background: transparent;
+    cursor: pointer;
+    z-index: 9;
+}
+
+.battery-row {
+    top: 381px;
+}
+
+.sensor-row {
+    top: 448px;
+}
+
+.system-row {
+    top: 515px;
+}
+
+.bicycle-row:active {
+    background: rgba(255,255,255,.12);
+}

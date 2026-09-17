@@ -1,0 +1,607 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    min-height: 100%;
+
+    background: #000000;
+
+    font-family: "Poppins", sans-serif;
+}
+
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* =========================================================
+   MAIN FRAME
+   Figma mobile = 390 × 844
+   ========================================================= */
+
+.monitoring-page {
+    position: relative;
+
+    width: 390px;
+    height: 844px;
+
+    overflow: hidden;
+
+    border-radius: 40px;
+
+    background: #ffffff;
+}
+
+
+.monitoring-background {
+    position: absolute;
+
+    inset: 0;
+
+    width: 390px;
+    height: 844px;
+
+    object-fit: fill;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+.monitoring-back {
+    position: absolute;
+
+    top: 18px;
+    left: 16px;
+
+    width: 52px;
+    height: 48px;
+
+    z-index: 40;
+}
+
+
+/* =========================================================
+   GOOGLE MAP
+   Area ini berada DI ATAS map screenshot.
+   Jika API key kosong, #google-map tetap transparan sehingga
+   screenshot asli masih terlihat.
+   ========================================================= */
+
+.map-shell {
+    position: absolute;
+
+    left: 17px;
+    top: 116px;
+
+    width: 356px;
+    height: 376px;
+
+    overflow: hidden;
+
+    z-index: 5;
+
+    background: transparent;
+}
+
+
+#google-map {
+    position: absolute;
+
+    inset: 0;
+
+    opacity: 0;
+
+    transition: opacity .35s ease;
+}
+
+
+#google-map.ready {
+    opacity: 1;
+}
+
+
+.map-message {
+    position: absolute;
+
+    left: 50%;
+    bottom: 12px;
+
+    transform: translateX(-50%);
+
+    max-width: 300px;
+
+    padding: 7px 10px;
+
+    border-radius: 14px;
+
+    background: rgba(30, 40, 50, .82);
+
+    color: #ffffff;
+
+    font-size: 9px;
+    line-height: 1.35;
+
+    text-align: center;
+
+    z-index: 8;
+}
+
+
+.map-message[hidden] {
+    display: none;
+}
+
+
+.live-speed {
+    position: absolute;
+
+    left: 82px;
+    top: 32px;
+
+    padding: 7px 11px;
+
+    border-radius: 12px;
+
+    background: #ffcc00;
+
+    color: #3729cf;
+
+    font-size: 10px;
+    font-weight: 600;
+
+    z-index: 8;
+}
+
+
+.live-speed[hidden] {
+    display: none;
+}
+
+
+/* =========================================================
+   PIXEL-PRESERVED NOTIFICATIONS
+
+   Source screenshot coordinates:
+   x = 41 .. 909 from 944px
+   Card positions scaled to 390 × 844:
+   Telepon   y ≈ 539
+   SOS       y ≈ 617
+   Voice     y ≈ 696
+   ========================================================= */
+
+.notification-area {
+    position: absolute;
+
+    left: 17px;
+    top: 539px;
+
+    width: 359px;
+    height: 230px;
+
+    z-index: 25;
+
+    pointer-events: none;
+}
+
+
+.swipe-row {
+    position: absolute;
+
+    left: 0;
+
+    width: 359px;
+    height: 72px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    pointer-events: auto;
+
+    background: transparent;
+}
+
+
+.call-row {
+    top: 0;
+}
+
+
+.sos-row {
+    top: 78px;
+}
+
+
+.voice-row {
+    top: 157px;
+}
+
+
+/* Action di belakang card */
+
+.swipe-actions {
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    width: 126px;
+    height: 72px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 2px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+}
+
+
+.swipe-actions button {
+    border: none;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 2px;
+
+    font-family: "Poppins", sans-serif;
+
+    cursor: pointer;
+
+    touch-action: none;
+}
+
+
+.swipe-actions button span {
+    font-size: 23px;
+    line-height: 1;
+}
+
+
+.swipe-actions button small {
+    font-size: 8px;
+    font-weight: 600;
+}
+
+
+.swipe-call {
+    background: #e9f6ff;
+
+    color: #188fd2;
+}
+
+
+.swipe-voice {
+    background: #fff3d6;
+
+    color: #e6a900;
+}
+
+
+/* Front card is literally cropped from user's screenshot */
+
+.swipe-card {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 4;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    transform: translateX(0);
+
+    transition:
+        transform .24s
+        cubic-bezier(.2, .8, .2, 1);
+
+    touch-action: pan-y;
+
+    cursor: grab;
+
+    background: #e4e4e4;
+}
+
+
+.swipe-card:active {
+    cursor: grabbing;
+}
+
+
+.swipe-card img {
+    display: block;
+
+    width: 359px;
+    height: 72px;
+
+    object-fit: fill;
+
+    pointer-events: none;
+
+    user-select: none;
+
+    -webkit-user-drag: none;
+}
+
+
+.swipe-row.open .swipe-card {
+    transform: translateX(-126px);
+}
+
+
+/* =========================================================
+   NAV HOTSPOTS
+   ========================================================= */
+
+.monitor-home-nav {
+    position: absolute;
+
+    left: 34px;
+    top: 789px;
+
+    width: 50px;
+    height: 46px;
+
+    z-index: 40;
+}
+
+
+.monitor-star-nav {
+    position: absolute;
+
+    left: 217px;
+    top: 789px;
+
+    width: 52px;
+    height: 46px;
+
+    z-index: 40;
+}
+
+
+/* =========================================================
+   RECORDING INDICATOR
+   ========================================================= */
+
+.monitor-recording {
+    position: absolute;
+
+    right: 27px;
+    bottom: 81px;
+
+    z-index: 70;
+
+    width: 195px;
+
+    padding: 9px 12px;
+
+    border-radius: 16px;
+
+    background: rgba(24, 30, 38, .94);
+
+    color: #ffffff;
+
+    font-size: 9px;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, .22);
+}
+
+
+.monitor-recording[hidden] {
+    display: none;
+}
+
+
+.monitor-recording-dot {
+    display: inline-block;
+
+    width: 7px;
+    height: 7px;
+
+    margin-right: 5px;
+
+    border-radius: 50%;
+
+    background: #ff3b4b;
+
+    animation:
+        monitor-rec 1s infinite;
+}
+
+
+.monitor-recording small {
+    display: block;
+
+    margin-left: 14px;
+
+    opacity: .72;
+}
+
+
+@keyframes monitor-rec {
+
+    50% {
+        opacity: .35;
+    }
+
+}
+
+
+/* =========================================================
+   CALL MODAL
+   ========================================================= */
+
+.monitor-call-modal {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 90;
+
+    display: grid;
+
+    place-items: center;
+
+    background:
+        rgba(12, 30, 46, .30);
+
+    backdrop-filter: blur(5px);
+
+    -webkit-backdrop-filter: blur(5px);
+}
+
+
+.monitor-call-modal[hidden] {
+    display: none;
+}
+
+
+.monitor-call-card {
+    width: 250px;
+
+    padding: 28px 22px 22px;
+
+    border-radius: 28px;
+
+    background: #ffffff;
+
+    text-align: center;
+
+    box-shadow:
+        0 18px 50px
+        rgba(0, 0, 0, .22);
+}
+
+
+.monitor-call-icon {
+    font-size: 48px;
+}
+
+
+.monitor-call-card small {
+    display: block;
+
+    color: #7c8b9f;
+}
+
+
+.monitor-call-card strong {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #2f3742;
+
+    font-size: 18px;
+}
+
+
+.monitor-call-card button {
+    margin-top: 20px;
+
+    width: 100%;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 22px;
+
+    background: #ef4650;
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.monitor-toast {
+    position: absolute;
+
+    left: 50%;
+    bottom: 80px;
+
+    transform: translateX(-50%);
+
+    z-index: 100;
+
+    max-width: 305px;
+
+    padding: 9px 13px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(25, 31, 38, .92);
+
+    color: #ffffff;
+
+    font-size: 9px;
+
+    text-align: center;
+}
+
+
+.monitor-toast[hidden] {
+    display: none;
+}
+
+
+/* =========================================================
+   SMALL SCREEN PREVIEW
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+    body {
+        display: block;
+
+        overflow-x: hidden;
+    }
+
+
+    .monitoring-page {
+        transform-origin: top left;
+
+        transform:
+            scale(
+                calc(100vw / 390)
+            );
+    }
+
+}
+
+#monitor-incoming-actions{display:flex;gap:12px}#monitor-incoming-actions[hidden]{display:none}#monitor-incoming-actions button{border:0;padding:12px 20px;border-radius:12px;color:white;background:#168647}#monitor-incoming-actions #monitor-decline{background:#d84949}
+#monitor-incoming-voice{position:absolute;z-index:60;left:6%;bottom:12%;width:88%;box-sizing:border-box;padding:18px;border-radius:18px;background:white;box-shadow:0 5px 25px #0004;font-size:13px}#monitor-incoming-voice[hidden]{display:none}#monitor-incoming-voice audio{display:block;width:100%;margin:10px 0}#monitor-close-voice{background:#117ac2;color:white;border:0;border-radius:8px;padding:8px 15px}
+.swipe-voice {touch-action:none;user-select:none;-webkit-user-select:none;}

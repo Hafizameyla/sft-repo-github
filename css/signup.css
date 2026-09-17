@@ -1,0 +1,517 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap");
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    min-height: 100%;
+
+    font-family: "Poppins", sans-serif;
+}
+
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #000000;
+}
+
+
+/* =========================================================
+   MAIN FRAME
+
+   Ukuran berdasarkan Figma:
+   W = 390 px
+   H = 844 px
+   Corner Radius = 40 px
+   ========================================================= */
+
+.sign-up-page {
+    width: 390px;
+    height: 844px;
+
+    position: relative;
+}
+
+
+.iphone {
+    position: relative;
+
+    width: 390px;
+    height: 844px;
+
+    overflow: hidden;
+
+    border-radius: 40px;
+
+    background:
+        linear-gradient(
+            87deg,
+            #4ebefe 0%,
+            #0c6dba 100%
+        );
+}
+
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.back-button {
+    position: absolute;
+
+    top: 35px;
+    left: 34px;
+
+    width: 24px;
+    height: 24px;
+
+    padding: 0;
+    margin: 0;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    z-index: 10;
+}
+
+
+.back-button svg {
+    display: block;
+
+    width: 24px;
+    height: 24px;
+}
+
+
+/* =========================================================
+   WHITE CONTENT AREA
+   ========================================================= */
+
+.white-container {
+    position: absolute;
+
+    top: 137px;
+    left: 0;
+
+    width: 390px;
+    height: 707px;
+
+    background: #ffffff;
+
+    border-radius:
+        40px
+        40px
+        0
+        0;
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.title {
+    position: absolute;
+
+    top: 174px;
+    left: 0;
+
+    width: 390px;
+
+    margin: 0;
+
+    text-align: center;
+
+    color: #45b2f5;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 40px;
+    font-weight: 600;
+
+    line-height: 52px;
+}
+
+
+/* =========================================================
+   INPUT
+   ========================================================= */
+
+.input-container {
+    position: absolute;
+
+    left: 50px;
+
+    width: 290px;
+    height: 65px;
+}
+
+
+.input-name {
+    top: 266px;
+}
+
+
+.input-age {
+    top: 350px;
+}
+
+
+.input-code {
+    top: 434px;
+}
+
+
+.input-container input {
+    display: block;
+
+    width: 290px;
+    height: 65px;
+
+    margin: 0;
+    padding: 0 12px;
+
+    border: 1px solid #a4b0c4;
+
+    border-radius: 17px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    color: #4a628a;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+.input-container input::placeholder {
+    color: #a4b0c4;
+
+    opacity: 1;
+}
+
+
+.input-container input:focus {
+    border-color: #a4b0c4;
+
+    outline: none;
+}
+
+
+/*
+Menghilangkan panah bawaan
+pada input number
+*/
+
+.input-age input::-webkit-inner-spin-button,
+.input-age input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+
+    margin: 0;
+}
+
+
+.input-age input {
+    -moz-appearance: textfield;
+}
+
+
+/* =========================================================
+   EYE ICON
+   ========================================================= */
+
+.eye-icon {
+    position: absolute;
+
+    top: 50%;
+    right: 15px;
+
+    width: 28px;
+    height: 20px;
+
+    transform: translateY(-50%);
+
+    pointer-events: none;
+}
+
+
+.eye-icon svg {
+    display: block;
+
+    width: 28px;
+    height: 20px;
+}
+
+
+/* =========================================================
+   GUIDE
+   ========================================================= */
+
+.guide {
+    position: absolute;
+
+    top: 511px;
+    right: 50px;
+
+    color: #4a628a;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    line-height: 20px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   GET STARTED BUTTON
+   ========================================================= */
+
+.get-started {
+    position: absolute;
+
+    top: 559px;
+    left: 50px;
+
+    width: 290px;
+    height: 44px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            90deg,
+
+            #b9e5e8 0%,
+            #b9e5e8 15%,
+            #75afd2 55%,
+            #1173bf 100%
+        );
+
+    box-shadow:
+        0 5px 6px
+        rgba(0, 0, 0, 0.16);
+
+    color: #ffffff;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    text-align: center;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.divider {
+    position: absolute;
+
+    top: 667px;
+    left: 45px;
+
+    width: 300px;
+    height: 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    color: #a4b0c4;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+
+.divider-line {
+    flex: 1;
+
+    height: 1px;
+
+    background: #a4b0c4;
+}
+
+
+/* =========================================================
+   GOOGLE
+   ========================================================= */
+
+.google-button {
+    position: absolute;
+
+    top: 704px;
+    left: 183px;
+
+    width: 24px;
+    height: 24px;
+
+    margin: 0;
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+
+.google-button svg {
+    display: block;
+
+    width: 24px;
+    height: 24px;
+}
+
+
+/* =========================================================
+   SIGN IN
+   ========================================================= */
+
+.signin-text {
+    position: absolute;
+
+    top: 748px;
+    left: 0;
+
+    width: 390px;
+
+    text-align: center;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    line-height: 22px;
+}
+
+
+.signin-text span {
+    color: #7789a7;
+}
+
+
+.signin-text a {
+    color: #4a628a;
+
+    font-weight: 600;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   IPHONE HOME INDICATOR
+   ========================================================= */
+
+.home-indicator {
+    position: absolute;
+
+    left: 128px;
+    bottom: 7px;
+
+    width: 144px;
+    height: 5px;
+
+    border-radius: 3px;
+
+    background: #404040;
+}
+
+
+/* =========================================================
+   MENCEGAH ELEMEN BERUBAH UKURAN
+   ========================================================= */
+
+button,
+input {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   RESPONSIVE PREVIEW
+
+   Pada layar di bawah 390 px,
+   frame akan mengecil proporsional.
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+    body {
+        display: block;
+    }
+
+    .sign-up-page {
+        transform-origin: top left;
+
+        transform:
+            scale(
+                calc(100vw / 390)
+            );
+    }
+}
+
+
+/* Eye toggle fix */
+.input-code {
+    position: relative;
+}
+
+.input-code input {
+    padding-right: 65px;
+}
+
+.eye-icon {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.eye-icon svg {
+    pointer-events: none;
+}

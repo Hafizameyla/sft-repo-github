@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SenCye - Sign Up</title>
+
+    <link rel="stylesheet" href="../css/globals.css">
+    <link rel="stylesheet" href="../css/styleguide.css">
+    <link rel="stylesheet" href="../css/signup.css">
+</head>
+
+<body>
+
+    <div class="sign-up-page">
+
+        <div class="iphone">
+
+            <!-- Tombol kembali -->
+            <a class="back-button" href="../index.html" aria-label="Kembali">
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M20 12H5"
+                        stroke="white"
+                        stroke-width="2.6"
+                        stroke-linecap="round"
+                    />
+
+                    <path
+                        d="M11 6L5 12L11 18"
+                        stroke="white"
+                        stroke-width="2.6"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </a>
+
+
+            <!-- Bagian putih -->
+            <div class="white-container"></div>
+
+
+            <!-- Judul -->
+            <h1 class="title">
+                Sign Up
+            </h1>
+
+
+            <!-- FORM -->
+
+            <!-- Nama -->
+            <div class="input-container input-name">
+                <input
+                    type="text"
+                    placeholder="Masukkan Nama"
+                >
+            </div>
+
+
+            <!-- Usia -->
+            <div class="input-container input-age">
+                <input
+                    type="number"
+                    placeholder="Masukkan Usia"
+                >
+            </div>
+
+
+            <!-- Kode SenCye -->
+            <div class="input-container input-code">
+
+                <input
+                    type="password"
+                    placeholder="Kode SenCye"
+                >
+
+                <div class="eye-icon" id="eye-toggle">
+
+                    <svg
+                        viewBox="0 0 28 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+
+                        <path
+                            d="
+                            M1.5 10
+                            C4.4 5.2 8.5 2.5 14 2.5
+                            C19.5 2.5 23.6 5.2 26.5 10
+                            C23.6 14.8 19.5 17.5 14 17.5
+                            C8.5 17.5 4.4 14.8 1.5 10
+                            Z"
+                            stroke="#A4B0C4"
+                            stroke-width="2.2"
+                        />
+
+                        <circle
+                            cx="14"
+                            cy="10"
+                            r="3.4"
+                            stroke="#A4B0C4"
+                            stroke-width="2.2"
+                        />
+
+                    </svg>
+
+                </div>
+
+            </div>
+
+
+            <!-- Panduan -->
+            <div class="guide">
+                Panduan lihat kode?
+            </div>
+
+
+            <!-- Get Started -->
+            <button
+                class="get-started"
+                type="button"
+                onclick="window.location.href='homepage.html'"
+            >
+                Get Started
+            </button>
+
+
+            <!-- Divider -->
+            <div class="divider">
+
+                <div class="divider-line"></div>
+
+                <span>
+                    Sign up dengan
+                </span>
+
+                <div class="divider-line"></div>
+
+            </div>
+
+
+            <!-- Google -->
+            <button
+                class="google-button"
+                type="button"
+                aria-label="Daftar dengan Google"
+            >
+
+                <svg
+                    viewBox="0 0 18 18"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+
+                    <path
+                        fill="#4285F4"
+                        d="
+                        M17.64 9.205
+                        C17.64 8.567 17.583 7.953 17.476 7.364
+                        H9
+                        V10.845
+                        H13.844
+                        C13.635 11.97 12.988 12.923 12.046 13.561
+                        V15.819
+                        H14.955
+                        C16.657 14.252 17.64 11.945 17.64 9.205
+                        Z"
+                    />
+
+                    <path
+                        fill="#34A853"
+                        d="
+                        M9 18
+                        C11.43 18 13.467 17.194 14.955 15.819
+                        L12.045 13.561
+                        C11.24 14.101 10.21 14.42 9 14.42
+                        C6.656 14.42 4.672 12.835 3.963 10.706
+                        H0.956
+                        V13.038
+                        C2.437 15.983 5.486 18 9 18
+                        Z"
+                    />
+
+                    <path
+                        fill="#FBBC05"
+                        d="
+                        M3.963 10.706
+                        C3.783 10.166 3.682 9.592 3.682 9
+                        C3.682 8.408 3.784 7.833 3.963 7.294
+                        V4.962
+                        H0.956
+                        C0.347 6.176 0 7.55 0 9
+                        C0 10.45 0.347 11.824 0.956 13.038
+                        L3.963 10.706
+                        Z"
+                    />
+
+                    <path
+                        fill="#EA4335"
+                        d="
+                        M9 3.58
+                        C10.322 3.58 11.508 4.034 12.441 4.926
+                        L15.023 2.344
+                        C13.463 0.892 11.426 0 9 0
+                        C5.486 0 2.437 2.017 0.956 4.962
+                        L3.963 7.294
+                        C4.672 5.165 6.656 3.58 9 3.58
+                        Z"
+                    />
+
+                </svg>
+
+            </button>
+
+
+            <!-- Sign in -->
+            <div class="signin-text">
+
+                <span>
+                    Pendamping?
+                </span>
+
+                <a href="scanning-qr.html">
+                    Sign In
+                </a>
+
+            </div>
+
+
+            <!-- Home Indicator -->
+            <div class="home-indicator"></div>
+
+        </div>
+
+    </div>
+
+<script src="../js/signup.js"></script>
+</body>
+</html>

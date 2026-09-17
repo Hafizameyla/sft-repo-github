@@ -1,0 +1,31 @@
+:root {
+  --colors-labels-vibrant-controls-primary: rgba(64, 64, 64, 1);
+}
+
+/*
+
+To enable a theme in your HTML, simply add one of the following data attributes to an HTML element, like so:
+
+<body data-colors-mode="light">
+    <!-- the rest of your content -->
+</body>
+
+You can apply the theme on any DOM node, not just the `body`
+
+*/
+
+[data-colors-mode="light"] {
+  --colors-labels-vibrant-controls-primary: rgba(64, 64, 64, 1);
+}
+
+[data-colors-mode="dark"] {
+  --colors-labels-vibrant-controls-primary: rgba(191, 191, 191, 1);
+}
+
+[data-colors-mode="IC-light"] {
+  --colors-labels-vibrant-controls-primary: rgba(64, 64, 64, 1);
+}
+
+[data-colors-mode="IC-dark"] {
+  --colors-labels-vibrant-controls-primary: rgba(191, 191, 191, 1);
+}

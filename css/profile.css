@@ -1,0 +1,2 @@
+.profile-back { position:absolute; left:6%; top:2.8%; width:12%; height:5%; z-index:10; border-radius:12px; }
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
