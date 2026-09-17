@@ -284,5 +284,4 @@ Tidak perlu ditampilkan kepada pengguna.
             );
     }
 }
-
-.camera-actions{position:absolute;top:623px;left:42px;width:306px;z-index:12;font:12px Arial,sans-serif;display:grid;gap:8px}.camera-actions button{border:0;background:#117ac2;color:white;border-radius:10px;padding:9px 12px;min-height:38px;cursor:pointer}.camera-actions label{display:block;margin-bottom:4px}.camera-actions form>div{display:flex;gap:6px}.camera-actions input{min-width:0;flex:1;border:1px solid #b5c8d9;border-radius:9px;padding:8px;font-size:16px}
+ra-actions{position:absolute;top:623px;left:42px;width:306px;z-index:12;font:12px Arial,sans-serif;display:grid;gap:8px}.camera-actions button{border:0;background:#117ac2;color:white;border-radius:10px;padding:9px 12px;min-height:38px;cursor:pointer}.camera-actions label{display:block;margin-bottom:4px}.camera-actions form>div{display:flex;gap:6px}.camera-actions input{min-width:0;flex:1;border:1px solid #b5c8d9;border-radius:9px;padding:8px;font-size:16px}
